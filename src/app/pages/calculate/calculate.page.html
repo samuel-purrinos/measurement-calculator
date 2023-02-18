@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Floor {{floorNumber}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-buttons (click)="goToNextFloor()">
+    Go to floor {{floorNumber +1}}
+  </ion-buttons>
+</ion-content>
