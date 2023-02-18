@@ -1,0 +1,7 @@
+{
+  "name": "elevator-measurement-calculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
