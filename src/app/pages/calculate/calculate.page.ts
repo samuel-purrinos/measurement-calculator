@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Measurement } from '../../models/measurement';
 
 @Component({
   selector: 'app-calculate',
@@ -11,12 +12,8 @@ export class CalculatePage implements OnInit {
  floorNumber;
  validationForm!: FormGroup;
  validationMessages :any;
+ private measurements : Measurement[] = [];
   constructor(private formBuilder: FormBuilder,private translate: TranslateService) {
-    this.translate.get('LEFT_BACKGROUND').subscribe(
-      value => {
-        console.log(value);
-      }
-    )
     this.floorNumber=0;
    }
 
@@ -25,49 +22,37 @@ export class CalculatePage implements OnInit {
   }
   prepareFormValidation(){
     this.validationForm = this.formBuilder.group({
-      side1 : new FormControl('', Validators.compose([
+      leftBackground : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      side2 : new FormControl('', Validators.compose([
+      rightBackground : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      side3 : new FormControl('', Validators.compose([
+      leftForge : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      side4 : new FormControl('', Validators.compose([
+      rightForge : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      side5 : new FormControl('', Validators.compose([
+      leftSide : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      side6 : new FormControl('', Validators.compose([
-        Validators.minLength(2),
-        Validators.maxLength(7),
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      side7 : new FormControl('', Validators.compose([
-        Validators.minLength(2),
-        Validators.maxLength(7),
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      side8 : new FormControl('', Validators.compose([
+      rightSide : new FormControl('', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
@@ -75,59 +60,56 @@ export class CalculatePage implements OnInit {
       ]))
     });
     this.validationMessages = {
-      side1: [
-        { type: 'required', message: 'Side 1 is required.' },
-        { type: 'minlength', message: 'Side 1 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 1 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 1 must be a number.' },
+      leftBackground: [
+        { type: 'required', message: 'calculate.left_background calculate.error.required' },
+        { type: 'minlength', message: 'calculate.left_background calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.left_background calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.left_background calculate.error.number' },
       ],
-      side2: [
-        { type: 'required', message: 'Side 2 is required.' },
-        { type: 'minlength', message: 'Side 2 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 2 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 2 must be a number.' },
+      rightBackground: [
+        { type: 'required', message: 'calculate.right_background calculate.error.required' },
+        { type: 'minlength', message: 'calculate.right_background calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.right_background calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.right_background calculate.error.number' },
       ],
-      side3: [
-        { type: 'required', message: 'Side 3 is required.' },
-        { type: 'minlength', message: 'Side 3 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 3 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 3 must be a number.' },
+      leftForge: [
+        { type: 'required', message: 'calculate.left_forge calculate.error.required' },
+        { type: 'minlength', message: 'calculate.left_forge calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.left_forge calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.left_forge calculate.error.number' },
       ],
-      side4: [
-        { type: 'required', message: 'Side 4 is required.' },
-        { type: 'minlength', message: 'Side 4 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 4 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 4 must be a number.' },
+      rightForge: [
+        { type: 'required', message: 'calculate.right_forge calculate.error.required' },
+        { type: 'minlength', message: 'calculate.right_forge calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.right_forge calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.right_forge calculate.error.number' },
       ],
-      side5: [
-        { type: 'required', message: 'Side 5 is required.' },
-        { type: 'minlength', message: 'Side 5 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 5 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 5 must be a number.' },
+      leftSide: [
+        { type: 'required', message: 'calculate.left_side calculate.error.required' },
+        { type: 'minlength', message: 'calculate.left_side calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.left_side calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.left_sidecalculate.error.number' },
       ],
-      side6: [
-        { type: 'required', message: 'Side 6 is required.' },
-        { type: 'minlength', message: 'Side 6 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 6 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 6 must be a number.' },
-      ],
-      side7: [
-        { type: 'required', message: 'Side 7 is required.' },
-        { type: 'minlength', message: 'Side 7 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 7 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 7 must be a number.' },
-      ],
-      side8: [
-        { type: 'required', message: 'Side 8 is required.' },
-        { type: 'minlength', message: 'Side 8 must be at least 2 characters long.' },
-        { type: 'maxlength', message: 'Side 8 cannot be more than 7 characters long.' },
-        { type: 'pattern', message: 'Side 8 must be a number.' },
+      rightSide: [
+        { type: 'required', message: 'calculate.right_side calculate.error.required' },
+        { type: 'minlength', message: 'calculate.right_side calculate.error.min_length' },
+        { type: 'maxlength', message: 'calculate.right_side calculate.error.max_length' },
+        { type: 'pattern', message: 'calculate.right_sidecalculate.error.number' },
       ]
     };
 
   }
 
   goToNextFloor(){
+    this.measurements.push({
+      leftBackground:this.validationForm.value.leftBackground,
+      rightBackground:this.validationForm.value.rightBackground,
+      leftForge:this.validationForm.value.leftForge,
+      rightForge:this.validationForm.value.rightForge,
+      leftSide:this.validationForm.value.leftSide,
+      rightSide:this.validationForm.value.rightSide
+    });
+    console.log("ARRAY EN CALCULATE :",this.measurements);
     this.floorNumber++
   }
 }

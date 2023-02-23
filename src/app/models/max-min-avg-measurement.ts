@@ -7,13 +7,11 @@ export interface MaxMinAvgMeasurement {
 export interface Result {
 id: number;
 name: string;
-side1: MaxMinAvgMeasurement;
-side2: MaxMinAvgMeasurement;
-side3: MaxMinAvgMeasurement;
-side4: MaxMinAvgMeasurement;
-side5: MaxMinAvgMeasurement;
-side6: MaxMinAvgMeasurement;
-side7: MaxMinAvgMeasurement;
-side8: MaxMinAvgMeasurement;
+leftForge:MaxMinAvgMeasurement;
+rightForge:MaxMinAvgMeasurement;
+leftBackground:MaxMinAvgMeasurement;
+rightBackground:MaxMinAvgMeasurement;
+leftSide:MaxMinAvgMeasurement;
+rightSide:MaxMinAvgMeasurement;
 }
 
