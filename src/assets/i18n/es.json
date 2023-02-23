@@ -1,0 +1,16 @@
+{
+    "calculate.left_forge":"Forjado izquierdo",
+    "calculate.right_forge":"Forjado derecho",
+    "calculate.left_background":"Fondo izquierdo",
+    "calculate.right_background":"Fondo derecho",
+    "calculate.left_side":"Lado izquierdo",
+    "calculate.right_side":"Lado derecho",
+    "calculate.go_to_floor":"Ir al piso ",
+    "calculate.floor":"Piso ",
+    "measurement.title":"Medidas",
+    "measurement.create_new_measurement":"Crear nueva medida",
+    "measurement.create":  "Crear",
+    "main.measurement":"Medidas",
+    "main.stored":"Medidas guardadas",
+    "stored.title":"Cargar medidas guardadas"
+}

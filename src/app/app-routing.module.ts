@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/measurement/measurement.module').then( m => m.MeasurementPageModule)
   },
   {
-    path: 'measurement-result',
+    path: 'measurement-result/:id',
     loadChildren: () => import('./pages/measurement-result/measurement-result.module').then( m => m.MeasurementResultPageModule)
   },
   {

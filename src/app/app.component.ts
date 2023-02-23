@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Measurement', url: '/measurement', icon: 'create' },
-    { title: 'Stored Measurements', url: '/stored-measurements', icon: 'download' },
+    { title: 'main.measurement', url: '/measurement', icon: 'create' },
+    { title: 'main.stored', url: '/stored-measurements', icon: 'download' },
   ];
-  constructor() {}
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
+  }
 }

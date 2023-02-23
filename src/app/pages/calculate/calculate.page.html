@@ -3,12 +3,56 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Floor {{floorNumber}}</ion-title>
+    <ion-title>{{'calculate.floor' | translate}} {{floorNumber}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="validationForm">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">{{'calculate.left_forge' | translate}}</ion-label>
+          <ion-input type="number" formControlName="side1"></ion-input>
+        </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{'calculate.left_side' | translate}}</ion-label>
+        <ion-input type="number" formControlName="side2"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{'calculate.left_background' | translate}}</ion-label>
+        <ion-input type="number" formControlName="side1"></ion-input>
+      </ion-item>
+  </ion-col>
+  <ion-col>
+    <ion-item>
+      <ion-label position="floating">{{'calculate.right_background' | translate}}</ion-label>
+      <ion-input type="number" formControlName="side2"></ion-input>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-item>
+      <ion-label position="floating">{{'calculate.right_side' | translate}}</ion-label>
+      <ion-input type="number" formControlName="side1"></ion-input>
+    </ion-item>
+</ion-col>
+<ion-col>
+  <ion-item>
+    <ion-label position="floating">{{'calculate.right_forge' | translate}}</ion-label>
+    <ion-input type="number" formControlName="side2"></ion-input>
+  </ion-item>
+</ion-col>
+</ion-row>
   <ion-buttons (click)="goToNextFloor()">
-    Go to floor {{floorNumber +1}}
+    {{'calculate.go_to_floor' | translate}} {{floorNumber +1}}
   </ion-buttons>
+  </form>
 </ion-content>

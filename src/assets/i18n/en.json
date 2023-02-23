@@ -1,0 +1,16 @@
+{
+    "calculate.left_forge":"Left forge",
+    "calculate.right_forge":"Right forge",
+    "calculate.left_background":"Left background",
+    "calculate.right_background":"Right background",
+    "calculate.left_side":"Left side",
+    "calculate.right_side":"Right side",
+    "calculate.go_to_floor":"Go to floor ",
+    "calculate.floor":"Floor ",
+    "measurement.title":"Measurement",
+    "measurement.create_new_measurement":"Create new measurement",
+    "measurement.create":"Create",
+    "main.measurement":"Measurements",
+    "main.stored":"Stored measurements",
+    "stored.title":"Load stored measurements"
+}

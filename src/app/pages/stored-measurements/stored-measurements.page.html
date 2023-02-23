@@ -3,10 +3,18 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Load Stored Measurements</ion-title>
+    <ion-title>{{'stored.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let measurement of measurements" [routerLink]="'/measurement-result/'+measurement.id">
+      <ion-label>
+        <h2 >{{measurement.name}}</h2>
+      </ion-label>
+      <!--<ion-button (click)="loadMeasurement(measurement)">Load</ion-button>-->
+    </ion-item>
+  </ion-list>
 
 </ion-content>

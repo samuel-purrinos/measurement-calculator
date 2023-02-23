@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { StoredMeasurementsPageRoutingModule } from './stored-measurements-routing.module';
 
 import { StoredMeasurementsPage } from './stored-measurements.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StoredMeasurementsPageRoutingModule
+    StoredMeasurementsPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [StoredMeasurementsPage]
 })

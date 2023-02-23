@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { CalculatePageRoutingModule } from './calculate-routing.module';
 
 import { CalculatePage } from './calculate.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CalculatePageRoutingModule
+    CalculatePageRoutingModule,
+    ReactiveFormsModule,
+    TranslateModule.forChild()
   ],
   declarations: [CalculatePage]
 })
