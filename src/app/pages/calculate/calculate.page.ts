@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Measurement } from '../../models/measurement';
+import { CalculateService } from '../../services/calculate.service';
 
 @Component({
   selector: 'app-calculate',
@@ -13,7 +15,8 @@ export class CalculatePage implements OnInit {
  validationForm!: FormGroup;
  validationMessages :any;
  private measurements : Measurement[] = [];
-  constructor(private formBuilder: FormBuilder,private translate: TranslateService) {
+  constructor(private formBuilder: FormBuilder,private translate: TranslateService, 
+    private calculateService : CalculateService,private router: Router) {
     this.floorNumber=0;
    }
 
@@ -101,15 +104,23 @@ export class CalculatePage implements OnInit {
   }
 
   goToNextFloor(){
-    this.measurements.push({
-      leftBackground:this.validationForm.value.leftBackground,
-      rightBackground:this.validationForm.value.rightBackground,
-      leftForge:this.validationForm.value.leftForge,
-      rightForge:this.validationForm.value.rightForge,
-      leftSide:this.validationForm.value.leftSide,
-      rightSide:this.validationForm.value.rightSide
-    });
-    console.log("ARRAY EN CALCULATE :",this.measurements);
+    let measurement =  {   
+    floor:this.floorNumber,
+    leftBackground:this.validationForm.value.leftBackground,
+    rightBackground:this.validationForm.value.rightBackground,
+    leftForge:this.validationForm.value.leftForge,
+    rightForge:this.validationForm.value.rightForge,
+    leftSide:this.validationForm.value.leftSide,
+    rightSide:this.validationForm.value.rightSide
+  }
+    this.measurements.push(measurement);
     this.floorNumber++
   }
+
+  async finish(){
+    await this.calculateService.calculate(this.measurements);
+    console.log(this.measurements);
+    this.router.navigateByUrl('/measurement-result');
+  }
+
 }

@@ -6,6 +6,7 @@
     "calculate.left_side":"Lado izquierdo",
     "calculate.right_side":"Lado derecho",
     "calculate.go_to_floor":"Ir al piso ",
+    "calculate.finish":"Terminar",
     "calculate.floor":"Piso ",
     "calculate.error.required":" requerido",
     "calculate.error.min_length":" debe tener al menos dos dígitos",
@@ -16,5 +17,11 @@
     "measurement.create":  "Crear",
     "main.measurement":"Medidas",
     "main.stored":"Medidas guardadas",
-    "stored.title":"Cargar medidas guardadas"
+    "stored.title":"Cargar medidas guardadas",
+    "result.report.title" : "Resultado de las mediciones",
+    "result.report.floor" : "Número de plantas : ",
+    "result.report.results": "Resultados",
+    "result.report.average" : "Promedio",
+    "result.report.minimum" : "Mínimo",
+    "result.report.maximum" : "Máximo"
 }

@@ -6,6 +6,7 @@
     "calculate.left_side":"Left side",
     "calculate.right_side":"Right side",
     "calculate.go_to_floor":"Go to floor ",
+    "calculate.finish":"Finish",
     "calculate.floor":"Floor ",
     "calculate.error.required":" is required",
     "calculate.error.min_length":" must be at least 2 characters long",
@@ -16,5 +17,11 @@
     "measurement.create":"Create",
     "main.measurement":"Measurements",
     "main.stored":"Stored measurements",
-    "stored.title":"Load stored measurements"
+    "stored.title":"Load stored measurements",
+    "result.report.title" : "Measurement results",
+    "result.report.floors" : "Number of floors : ",
+    "result.report.results": "Results",
+    "result.report.average" : "Average",
+    "result.report.minimum" : "Minimum",
+    "result.report.maximum" : "Maximum"
 }

@@ -51,8 +51,13 @@
   </ion-item>
 </ion-col>
 </ion-row>
-  <ion-buttons (click)="goToNextFloor()">
-    {{'calculate.go_to_floor' | translate}} {{floorNumber +1}}
-  </ion-buttons>
+<ion-row>
+  <ion-col>
+    <ion-buttons (click)="goToNextFloor()">{{'calculate.go_to_floor' | translate}} {{floorNumber +1}</ion-buttons>
+  </ion-col>
+  <ion-col>
+    <ion-buttons (click)="finish()">{{'calculate.finish' | translate}}</ion-buttons>
+  </ion-col>
+</ion-row>
   </form>
 </ion-content>

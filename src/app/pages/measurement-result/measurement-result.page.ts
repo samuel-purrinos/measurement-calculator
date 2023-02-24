@@ -3,6 +3,7 @@ import { StorageService } from '../../services/storage.service';
 import { Measurement } from '../../models/measurement';
 import { ActivatedRoute } from '@angular/router';
 import { Result } from 'src/app/models/max-min-avg-measurement';
+import { CalculateService } from '../../services/calculate.service';
 
 @Component({
   selector: 'app-measurement-result',
@@ -10,30 +11,16 @@ import { Result } from 'src/app/models/max-min-avg-measurement';
   styleUrls: ['./measurement-result.page.scss'],
 })
 export class MeasurementResultPage implements OnInit {
-  measurement : Result;
-  activatedRoute: ActivatedRoute;
+  measurements : Measurement[] = [];
+  currentResult : Result;
 
-  constructor(private storageService : StorageService,activatedRoute: ActivatedRoute) {
-    this.activatedRoute = activatedRoute;
-    let measurement :Result;
-    this.loadMeasurement().then((measurement) => {
-      measurement = measurement!;
-    });
-    this.measurement = measurement!;
-    
+  constructor(private calculateService : CalculateService) {
+    this.measurements = this.calculateService.finishedMeasurements;
+    this.currentResult = this.calculateService.result;
+
   }
-  
 
   ngOnInit() {
-  }
-
-  async loadMeasurement() {
-    if(this.storageService.storedMeasurements!==undefined){}
-    let measurement = await this.storageService.storedMeasurements.find((item) => {
-      return item.id === this.activatedRoute.snapshot.params['id'];
-    }
-    );
-    return measurement;
   }
 
 }
