@@ -118,6 +118,7 @@ export class CalculatePage implements OnInit {
   }
 
   async finish(){
+    this.goToNextFloor();
     await this.calculateService.calculate(this.measurements);
     console.log(this.measurements);
     this.router.navigateByUrl('/measurement-result');
