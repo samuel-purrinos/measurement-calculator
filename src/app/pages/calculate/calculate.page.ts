@@ -15,9 +15,11 @@ export class CalculatePage implements OnInit {
  validationForm!: FormGroup;
  validationMessages :any;
  private measurements : Measurement[] = [];
+ measurement : Measurement;
   constructor(private formBuilder: FormBuilder,private translate: TranslateService, 
     private calculateService : CalculateService,private router: Router) {
     this.floorNumber=0;
+    this.measurement = {} as Measurement;
    }
 
   ngOnInit() {
@@ -25,94 +27,47 @@ export class CalculatePage implements OnInit {
   }
   prepareFormValidation(){
     this.validationForm = this.formBuilder.group({
-      leftBackground : new FormControl('', Validators.compose([
+      leftBackground : new FormControl(this.measurement.leftBackground, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      rightBackground : new FormControl('', Validators.compose([
+      rightBackground : new FormControl(this.measurement.rightBackground, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      leftForge : new FormControl('', Validators.compose([
+      leftForge : new FormControl(this.measurement.leftForge, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      rightForge : new FormControl('', Validators.compose([
+      rightForge : new FormControl(this.measurement.rightForge, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      leftSide : new FormControl('', Validators.compose([
+      leftSide : new FormControl(this.measurement.leftSide, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      rightSide : new FormControl('', Validators.compose([
+      rightSide : new FormControl(this.measurement.rightSide, Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ]))
     });
-    this.validationMessages = {
-      leftBackground: [
-        { type: 'required', message: 'calculate.left_background calculate.error.required' },
-        { type: 'minlength', message: 'calculate.left_background calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.left_background calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.left_background calculate.error.number' },
-      ],
-      rightBackground: [
-        { type: 'required', message: 'calculate.right_background calculate.error.required' },
-        { type: 'minlength', message: 'calculate.right_background calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.right_background calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.right_background calculate.error.number' },
-      ],
-      leftForge: [
-        { type: 'required', message: 'calculate.left_forge calculate.error.required' },
-        { type: 'minlength', message: 'calculate.left_forge calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.left_forge calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.left_forge calculate.error.number' },
-      ],
-      rightForge: [
-        { type: 'required', message: 'calculate.right_forge calculate.error.required' },
-        { type: 'minlength', message: 'calculate.right_forge calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.right_forge calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.right_forge calculate.error.number' },
-      ],
-      leftSide: [
-        { type: 'required', message: 'calculate.left_side calculate.error.required' },
-        { type: 'minlength', message: 'calculate.left_side calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.left_side calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.left_sidecalculate.error.number' },
-      ],
-      rightSide: [
-        { type: 'required', message: 'calculate.right_side calculate.error.required' },
-        { type: 'minlength', message: 'calculate.right_side calculate.error.min_length' },
-        { type: 'maxlength', message: 'calculate.right_side calculate.error.max_length' },
-        { type: 'pattern', message: 'calculate.right_sidecalculate.error.number' },
-      ]
-    };
-
   }
 
   goToNextFloor(){
-    let measurement =  {   
-    floor:this.floorNumber,
-    leftBackground:this.validationForm.value.leftBackground,
-    rightBackground:this.validationForm.value.rightBackground,
-    leftForge:this.validationForm.value.leftForge,
-    rightForge:this.validationForm.value.rightForge,
-    leftSide:this.validationForm.value.leftSide,
-    rightSide:this.validationForm.value.rightSide
-  }
+    let measurement =  this.validationForm.value;
     this.measurements.push(measurement);
     this.floorNumber++
   }
@@ -123,5 +78,12 @@ export class CalculatePage implements OnInit {
     console.log(this.measurements);
     this.router.navigateByUrl('/measurement-result');
   }
+
+  get leftForge() {  return this.validationForm.get('leftForge')!; }
+  get leftSide() { return this.validationForm.controls['leftSide']; }
+  get rightForge() { return this.validationForm.controls['rightForge']; }
+  get rightSide() { return this.validationForm.controls['rightSide']; }
+  get leftBackground() { return this.validationForm.controls['leftBackground']; }
+  get rightBackground() { return this.validationForm.controls['rightBackground']; }
 
 }

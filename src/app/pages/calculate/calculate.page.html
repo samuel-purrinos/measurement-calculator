@@ -9,55 +9,68 @@
 
 <ion-content>
   <form [formGroup]="validationForm">
-    <ion-row>
-      <ion-col>
         <ion-item>
           <ion-label position="floating">{{'calculate.left_forge' | translate}}</ion-label>
-          <ion-input type="number" formControlName="leftForge"></ion-input>
+          <ion-input type="number" formControlName="leftForge" required></ion-input>
         </ion-item>
-    </ion-col>
-    <ion-col>
+          <div *ngIf="leftForge.invalid && (leftForge.dirty || leftForge.touched)" class="alert alert-danger">
+            <div *ngIf="leftForge.errors?.['required']">
+              {{'calculate.left_forge' | translate}} {{'calculate.error.required' | translate}}
+            </div>
+          </div>
       <ion-item>
         <ion-label position="floating">{{'calculate.left_side' | translate}}</ion-label>
         <ion-input type="number" formControlName="leftSide" ></ion-input>
       </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
+      <div *ngIf="leftSide.invalid && (leftSide.dirty || leftSide.touched)" class="alert alert-danger">
+        <div *ngIf="leftSide.errors?.['required']">
+          {{'calculate.left_side' | translate}} {{'calculate.error.required' | translate}}
+        </div>
+      </div>
       <ion-item>
         <ion-label position="floating">{{'calculate.left_background' | translate}}</ion-label>
         <ion-input type="number" formControlName="leftBackground" ></ion-input>
       </ion-item>
-  </ion-col>
-  <ion-col>
+      <div *ngIf="leftBackground.invalid && (leftBackground.dirty || leftBackground.touched)" class="alert alert-danger">
+        <div *ngIf="leftBackground.errors?.['required']">
+          {{'calculate.left_background' | translate}} {{'calculate.error.required' | translate}}
+        </div>
+      </div>
     <ion-item>
       <ion-label position="floating">{{'calculate.right_background' | translate}}</ion-label>
       <ion-input type="number" formControlName="rightBackground" ></ion-input>
     </ion-item>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col>
     <ion-item>
+      <div *ngIf="rightBackground.invalid && (rightBackground.dirty || rightBackground.touched)" class="alert alert-danger">
+        <div *ngIf="rightBackground.errors?.['required']">
+          {{'calculate.right_background' | translate}} {{'calculate.error.required' | translate}}
+        </div>
+      </div>
       <ion-label position="floating">{{'calculate.right_side' | translate}}</ion-label>
       <ion-input type="number" formControlName="rightSide" ></ion-input>
     </ion-item>
-</ion-col>
-<ion-col>
+    <div *ngIf="rightSide.invalid && (rightSide.dirty || rightSide.touched)" class="alert alert-danger">
+      <div *ngIf="rightSide.errors?.['required']">
+        {{'calculate.right_side' | translate}} {{'calculate.error.required' | translate}}
+      </div>
+    </div>
   <ion-item>
     <ion-label position="floating">{{'calculate.right_forge' | translate}}</ion-label>
     <ion-input type="number" formControlName="rightForge" ></ion-input>
   </ion-item>
-</ion-col>
-</ion-row>
-<ion-row>
-  <ion-col>
-    <ion-buttons (click)="goToNextFloor()">{{'calculate.go_to_floor' | translate}} {{floorNumber +1}</ion-buttons>
-  </ion-col>
-  <ion-col>
-    <ion-buttons (click)="finish()">{{'calculate.finish' | translate}}</ion-buttons>
-  </ion-col>
-</ion-row>
+  <div *ngIf="rightForge.invalid && (rightForge.dirty || rightForge.touched)" class="alert alert-danger">
+    <div *ngIf="rightForge.errors?.['required']">
+      {{'calculate.right_forge' | translate}} {{'calculate.error.required' | translate}}
+    </div>
+  </div>
   </form>
 </ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button type="submit" [disabled]="!validationForm.valid" (click)="goToNextFloor()">
+    {{'calculate.go_to_floor' | translate}} {{floorNumber + 1}}
+  </ion-button>
+  <ion-button type="submit" [disabled]="!validationForm.valid" (click)="finish()">
+    {{'calculate.finish' | translate}}
+  </ion-button>
+</ion-footer>
