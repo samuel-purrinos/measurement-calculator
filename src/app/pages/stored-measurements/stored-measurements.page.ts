@@ -11,7 +11,9 @@ import { Result } from '../../models/max-min-avg-measurement';
 export class StoredMeasurementsPage implements OnInit {
   measurements : Result[] = [];
 
-  constructor(private storageService : StorageService) { }
+  constructor(private storageService : StorageService) { 
+    this.measurements = this.storageService.getData();
+  }
 
   ngOnInit() {
   }

@@ -6,31 +6,24 @@ import { Result } from '../models/max-min-avg-measurement';
 })
 export class StorageService {
 
-  public storedMeasurements : Result[] = [];
+  public storedMeasurements : Result[];
 
-  constructor() { }
+  private dataKey = 'storedMeasurements';
 
-  initialize() {
-    let storedMeasurements = window.localStorage.getItem('storedMeasurements');
-    if (storedMeasurements) {
-      this.storedMeasurements = JSON.parse(storedMeasurements);
-    }
+  constructor() { 
+    this.storedMeasurements = this.getData();
   }
 
-  add(measurement: Result) {
-    this.storedMeasurements.push(measurement);
-    window.localStorage.setItem('storedMeasurements', JSON.stringify(this.storedMeasurements));
+  getData(): Result[] {
+    const dataString = localStorage.getItem(this.dataKey);
+    return dataString ? JSON.parse(dataString) : [];
   }
 
-  remove(measurement: Result) {
-    let removeIndex : number = this.storedMeasurements.findIndex((item) => {
-      return item.id === measurement.id;
-    }
-    );
-    if (removeIndex !== -1) {
-      this.storedMeasurements.splice(removeIndex, 1);
-      window.localStorage.setItem('storedMeasurements', JSON.stringify(this.storedMeasurements));
-    }
+  setData(data: Result): void {
+    data.id = this.storedMeasurements.length + 1;
+    this.storedMeasurements.push(data);
+    const dataString = JSON.stringify(this.storedMeasurements);
+    localStorage.setItem(this.dataKey, dataString);
   }
 
 }

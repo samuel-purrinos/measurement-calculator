@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -9,6 +9,7 @@
 
 <ion-content>
   <form [formGroup]="validationForm">
+    <ion-col size="6" size-md="3">
         <ion-item>
           <ion-label position="floating">{{'calculate.left_forge' | translate}}</ion-label>
           <ion-input type="number" formControlName="leftForge" required></ion-input>
@@ -63,6 +64,7 @@
       {{'calculate.right_forge' | translate}} {{'calculate.error.required' | translate}}
     </div>
   </div>
+</ion-col>
   </form>
 </ion-content>
 

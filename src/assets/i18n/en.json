@@ -21,5 +21,7 @@
     "result.report.results": "Results",
     "result.report.average" : "Average",
     "result.report.minimum" : "Minimum",
-    "result.report.maximum" : "Maximum"
+    "result.report.maximum" : "Maximum",
+    "result.report.save" : "Save",
+    "result.report.save_title" : "Insert name for the measurement"
 }

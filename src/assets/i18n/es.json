@@ -21,5 +21,7 @@
     "result.report.results": "Resultados",
     "result.report.average" : "Promedio",
     "result.report.minimum" : "Mínimo",
-    "result.report.maximum" : "Máximo"
+    "result.report.maximum" : "Máximo",
+    "result.report.save" : "Guardar",
+    "result.report.save_title" : "Guardar medidas"
 }
