@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'elevator-measurement-calculator',
+  appId: 'com.uichesoh.agrelo-elevators',
+  appName: 'algrelo-elevators',
   webDir: 'www',
   bundledWebRuntime: false
 };
