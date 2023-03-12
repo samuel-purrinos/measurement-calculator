@@ -68,8 +68,10 @@ export class CalculatePage implements OnInit {
 
   goToNextFloor(){
     let measurement =  this.validationForm.value;
+    measurement.floor = this.floorNumber;
     this.measurements.push(measurement);
-    this.floorNumber++
+    this.floorNumber++;
+    this.validationForm.reset();
   }
 
   async finish(){

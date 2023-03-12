@@ -10,9 +10,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MeasurementPage } from './pages/measurement/measurement.page';
+import { MeasurementReportComponent } from './pages/measurement-report/measurement-report.component';
+import { MeasurementResultPage } from './pages/measurement-result/measurement-result.page';
+import { CalculatePage } from './pages/calculate/calculate.page';
+import { StoredMeasurementsPage } from './pages/stored-measurements/stored-measurements.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    MeasurementPage,
+    MeasurementReportComponent,
+    MeasurementResultPage,
+    CalculatePage,
+    StoredMeasurementsPage,
+  ],
   imports: [BrowserModule,
      IonicModule.forRoot(), 
      AppRoutingModule,ReactiveFormsModule,
@@ -27,6 +39,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   }),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}
 

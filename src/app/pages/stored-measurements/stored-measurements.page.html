@@ -9,9 +9,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let measurement of measurements" [routerLink]="'/measurement-result/'+measurement.id">
+    <ion-item *ngFor="let measurement of storedMeasurements" [routerLink]="['/measurement-report', measurement.id]">
       <ion-label>
         <h2 >{{measurement.name}}</h2>
+
       </ion-label>
       <!--<ion-button (click)="loadMeasurement(measurement)">Load</ion-button>-->
     </ion-item>

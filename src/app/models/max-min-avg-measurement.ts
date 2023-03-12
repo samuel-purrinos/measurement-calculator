@@ -5,8 +5,6 @@ export interface MaxMinAvgMeasurement {
 }
 
 export interface Result {
-id: number;
-name: string;
 leftForge:MaxMinAvgMeasurement;
 rightForge:MaxMinAvgMeasurement;
 leftBackground:MaxMinAvgMeasurement;

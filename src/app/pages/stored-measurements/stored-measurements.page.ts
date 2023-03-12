@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { Measurement } from '../../models/measurement';
 import { Result } from '../../models/max-min-avg-measurement';
+import { StoredMeasurement } from '../../models/stored.measurement.interface';
 
 @Component({
   selector: 'app-stored-measurements',
@@ -9,10 +10,13 @@ import { Result } from '../../models/max-min-avg-measurement';
   styleUrls: ['./stored-measurements.page.scss'],
 })
 export class StoredMeasurementsPage implements OnInit {
-  measurements : Result[] = [];
+  storedMeasurements : StoredMeasurement[] = [];
 
   constructor(private storageService : StorageService) { 
-    this.measurements = this.storageService.getData();
+    this.storedMeasurements = this.storageService.getData();
+    if(this.storedMeasurements == null){
+      this.storedMeasurements = [];
+    }
   }
 
   ngOnInit() {

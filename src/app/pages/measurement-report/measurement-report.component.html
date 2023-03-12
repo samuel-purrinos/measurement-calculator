@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button slot="icon">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      My Orders
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="ion-no-padding">
+    <ion-item *ngFor="let measurement of storedMeasurement.measurements">
+      <ion-label>
+        <h2>{{'result.report.floor' | translate}} {{measurement.floor}}</h2>
+        <p>{{'calculate.left_forge' | translate}} : {{measurement.leftForge}}</p>
+        <p>{{'calculate.right_forge' | translate}} : {{measurement.rightForge}}</p>
+        <p>{{'calculate.left_background' | translate}} : {{measurement.leftBackground}}</p>
+        <p>{{'calculate.right_background'| translate}} : {{measurement.rightBackground}}</p>
+        <p>{{'calculate.left_side'| translate}} : {{measurement.leftSide}}</p>
+        <p>{{'calculate.right_side'| translate}} : {{measurement.rightSide}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-card class="ion-no-padding">
+    <ion-item>
+            <ion-label>
+              <h2>{{'result.report.results' | translate}}</h2>
+              <p>{{'calculate.left_forge' | translate}} : 
+                {{'result.report.average' | translate}} , {{storedMeasurement.result.leftForge.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.leftForge.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.leftForge.minimun}}</p>
+              <p>{{'calculate.right_forge' | translate}} : 
+                {{'result.report.average' | translate}} , {{storedMeasurement.result.rightForge.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.rightForge.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.rightForge.minimun}}</p>
+              <p>{{'calculate.left_background' | translate}} : 
+                {{'result.report.average' | translate}} , {{storedMeasurement.result.leftBackground.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.leftBackground.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.leftBackground.minimun}}</p>
+              <p>{{'calculate.right_background'| translate}}
+                 : {{'result.report.average' | translate}} , {{storedMeasurement.result.rightBackground.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.rightBackground.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.rightBackground.minimun}}</p>
+              <p>{{'calculate.left_side'| translate}} : 
+                {{'result.report.average' | translate}} , {{storedMeasurement.result.leftSide.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.leftSide.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.leftSide.minimun}}</p>
+              <p>{{'calculate.right_side'| translate}} : 
+                {{'result.report.average' | translate}} , {{storedMeasurement.result.rightSide.average}}, {{'result.report.maximum' | translate}}, {{storedMeasurement.result.rightSide.maximun}}, {{'result.report.minimum' | translate}} {{storedMeasurement.result.rightSide.minimun}}</p>
+            </ion-label>
+          </ion-item>
+  </ion-card>
+
+        <ion-fab-button (click)="generateReport()">
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+</ion-content>

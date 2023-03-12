@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CalculatePage } from './pages/calculate/calculate.page';
+import { MeasurementReportComponent } from './pages/measurement-report/measurement-report.component';
+import { MeasurementResultPage } from './pages/measurement-result/measurement-result.page';
+import { StoredMeasurementsPage } from './pages/stored-measurements/stored-measurements.page';
+import { MeasurementPage } from './pages/measurement/measurement.page';
 
 const routes: Routes = [
   {
@@ -9,19 +14,23 @@ const routes: Routes = [
   },
   {
     path: 'calculate',
-    loadChildren: () => import('./pages/calculate/calculate.module').then( m => m.CalculatePageModule)
+    component: CalculatePage
   },
   {
     path: 'measurement',
-    loadChildren: () => import('./pages/measurement/measurement.module').then( m => m.MeasurementPageModule)
+    component : MeasurementPage
   },
   {
     path: 'measurement-result',
-    loadChildren: () => import('./pages/measurement-result/measurement-result.module').then( m => m.MeasurementResultPageModule)
+    component : MeasurementResultPage
   },
   {
     path: 'stored-measurements',
-    loadChildren: () => import('./pages/stored-measurements/stored-measurements.module').then( m => m.StoredMeasurementsPageModule)
+    component : StoredMeasurementsPage
+  },
+  {
+    path: 'measurement-report/:id',
+    component : MeasurementReportComponent
   }
 ];
 

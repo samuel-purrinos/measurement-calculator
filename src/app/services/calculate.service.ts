@@ -11,8 +11,6 @@ export class CalculateService {
   
   constructor() { 
     this.currentResult ={
-      id: 0,
-      name: "",
       leftForge: {
         maximun: 0,
         minimun: 0,
@@ -50,8 +48,6 @@ export class CalculateService {
     this.measurements= [];
     this.measurements = measurements;
     let result : Result ={
-      id: 0,
-      name: "",
       leftForge: {
         maximun: 0,
         minimun: this.measurements[0].leftForge,
@@ -84,8 +80,6 @@ export class CalculateService {
       }
   }
     for(let m of measurements){
-      result.id = 0;
-      result.name ="";
       if(m.leftForge > result.leftForge.maximun){
         result.leftForge.maximun = m.leftForge;
       }

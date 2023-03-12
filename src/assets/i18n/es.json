@@ -23,5 +23,6 @@
     "result.report.minimum" : "Mínimo",
     "result.report.maximum" : "Máximo",
     "result.report.save" : "Guardar",
-    "result.report.save_title" : "Guardar medidas"
+    "result.report.save_title" : "Guardar medidas",
+    "store.load" : "Cargar"
 }
