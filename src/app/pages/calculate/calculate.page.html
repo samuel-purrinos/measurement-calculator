@@ -1,15 +1,23 @@
 <ion-header >
   <ion-toolbar>
+    <ion-title>
+      <div class="hcs ion-padding">
+      <ion-img src="assets/icon/agrelo-elevators-logo.jpg" class="ion-margin"></ion-img>
+      <span>  Agrelo Elevators</span>
+      </div>
+      </ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{'calculate.floor' | translate}} {{floorNumber}}</ion-title>
+    <ion-title class="ion-padding">{{'calculate.floor' | translate}} {{floorNumber}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
   <form [formGroup]="validationForm">
-    <ion-col size="6" size-md="3">
+    <ion-row class="ion-align-items-center">
+    <ion-col size="6" size-md="3" >
         <ion-item>
           <ion-label position="floating">{{'calculate.left_forge' | translate}}</ion-label>
           <ion-input type="number" formControlName="leftForge" required></ion-input>
@@ -65,6 +73,7 @@
     </div>
   </div>
 </ion-col>
+</ion-row>
   </form>
 </ion-content>
 

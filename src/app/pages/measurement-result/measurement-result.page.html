@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
+    <ion-title>
+      <div class="hcs ion-padding">
+      <ion-img src="assets/icon/agrelo-elevators-logo.jpg" class="ion-margin"></ion-img>
+      <span>  Agrelo Elevators</span>
+      </div>
+      </ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{'result.report.title' | translate}}</ion-title>
+    <ion-title class="ion-padding">{{'result.report.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,35 +17,75 @@
   <div class="ion-text-center ion-margin-top ion-margin-bottom">
       <p>{{'result.report.floors' | translate}} {{measurements.length}}</p>
   </div>
-  <ion-card class="ion-no-padding">
-    <ion-item *ngFor="let measurement of measurements; let i = index">
-      <ion-label>
-        <h2>{{'result.report.floor' | translate}} {{i + 1}}</h2>
-        <p>{{'calculate.left_forge' | translate}} : {{measurement.leftForge}}</p>
-        <p>{{'calculate.right_forge' | translate}} : {{measurement.rightForge}}</p>
-        <p>{{'calculate.left_background' | translate}} : {{measurement.leftBackground}}</p>
-        <p>{{'calculate.right_background'| translate}} : {{measurement.rightBackground}}</p>
-        <p>{{'calculate.left_side'| translate}} : {{measurement.leftSide}}</p>
-        <p>{{'calculate.right_side'| translate}} : {{measurement.rightSide}}</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        <h2>{{'result.report.results' | translate}}</h2>
-        <p>{{'calculate.left_forge' | translate}} : 
-          {{'result.report.average' | translate}} , {{currentResult.leftForge.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftForge.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftForge.minimun}}</p>
-        <p>{{'calculate.right_forge' | translate}} : 
-          {{'result.report.average' | translate}} , {{currentResult.rightForge.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightForge.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightForge.minimun}}</p>
-        <p>{{'calculate.left_background' | translate}} : 
-          {{'result.report.average' | translate}} , {{currentResult.leftBackground.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftBackground.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftBackground.minimun}}</p>
-        <p>{{'calculate.right_background'| translate}}
-           : {{'result.report.average' | translate}} , {{currentResult.rightBackground.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightBackground.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightBackground.minimun}}</p>
-        <p>{{'calculate.left_side'| translate}} : 
-          {{'result.report.average' | translate}} , {{currentResult.leftSide.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftSide.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftSide.minimun}}</p>
-        <p>{{'calculate.right_side'| translate}} : 
-          {{'result.report.average' | translate}} , {{currentResult.rightSide.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightSide.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightSide.minimun}}</p>
-      </ion-label>
-    </ion-item>
+    <ion-card  *ngFor="let measurement of measurements; let i = index">
+      <ion-card-header>
+        <ion-card-title>{{'result.report.floor' | translate}} {{i + 1}}</ion-card-title>
+      </ion-card-header>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_forge' | translate}} : </ion-text><ion-text color="secondary">{{measurement.rightForge}}</ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_background' | translate}} : </ion-text><ion-text color="secondary">{{measurement.leftBackground}}</ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_background'| translate}} : </ion-text><ion-text color="secondary">{{measurement.rightBackground}}</ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_side'| translate}} : </ion-text><ion-text color="secondary">{{measurement.leftSide}}</ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_side'| translate}} : </ion-text><ion-text color="secondary">{{measurement.rightSide}}</ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_forge' | translate}} : </ion-text><ion-text color="secondary">{{measurement.leftForge}}</ion-text>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{'result.report.results' | translate}}</ion-card-title>
+      </ion-card-header>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_forge' | translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.leftForge.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftForge.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftForge.minimun}}
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_forge' | translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.rightForge.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightForge.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightForge.minimun}}
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_background' | translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.leftBackground.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftBackground.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftBackground.minimun}}
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_background'| translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.rightBackground.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightBackground.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightBackground.minimun}}
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.left_side'| translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.leftSide.average}}, {{'result.report.maximum' | translate}}, {{currentResult.leftSide.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.leftSide.minimun}}
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="primary">{{'calculate.right_side'| translate}} : </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text color="secondary">{{'result.report.average' | translate}} , {{currentResult.rightSide.average}}, {{'result.report.maximum' | translate}}, {{currentResult.rightSide.maximun}}, {{'result.report.minimum' | translate}} {{currentResult.rightSide.minimun}}
+        </ion-text>
+      </ion-row>
   </ion-card>
 </ion-content>
 

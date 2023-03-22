@@ -5,4 +5,8 @@ ion-grid {
   ion-row {
     height: 33.33%;
   }
-  
+  .hcs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }  
